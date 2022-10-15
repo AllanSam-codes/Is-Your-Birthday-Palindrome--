@@ -1,3 +1,13 @@
+function reverseStr(str) {
+    var listOfChars = str.split('');
+    var reverseListOfChars = listOfChars.reverse('');
+    var reversedStr = reverseListOfChars.join('');
+    return reversedStr;
+
+    //return str.split('').reverse('').join(''); //This is th shorthand proprty which we above used function.  //
+}
+
+//console.log(reverseStr("hello"))
 
 function isPalindrome(str) {
     var reverse = reverseStr(str)
