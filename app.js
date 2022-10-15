@@ -17,7 +17,11 @@ function isPalindrome(str) {
 
 function convertDateToStr(date) {
 
-    var dateStr = { day: '', month: '', year: '' }
+    var dateStr = {
+        day: '',
+        month: '',
+        year: ''
+    }
 
     if (date.day < 10) {
         dateStr.day = '0' + date.day
@@ -55,9 +59,92 @@ function getAllDateFormats(date) {
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yymmdd]
 }
 
-var date = {
-    day: 9,
-    month: 5,
-    year: 2001
+function checkPalindromeForAllDateFormats(date) {
+    var listOfPalindromes = getAllDateFormats(date);
+
+    var flag = false;
+
+    for (var i = 0; i < listOfPalindromes.length; i++) {
+        if (isPalindrome(listOfPalindromes[i])) {
+            flag = true;
+            break;
+        }
+        return flag;
+    }
+
 }
-console.log(getAllDateFormats(date));
+
+function isLeapYear(year) {
+    if (year % 400 === 0) {
+        return true
+    }
+    if (year % 100 === 0) {
+        return false
+    }
+    if (year % 4 === 0) {
+        return true
+    }
+    return false
+}
+
+function getNextDate(date) {
+    var day = date.day + 1; // increase the days
+    var month = date.month;
+    var year = date.year;
+
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    if (month === 2) {
+        if (isLeapYear(year)) { // check for february
+            if (day > 29) {
+                day = 1;
+                month++;
+            }
+        } else {
+            if (day > 28) {
+                day = 1;
+                month++
+
+            }
+        }
+    } else {
+        if (day > daysInMonth[month - 1]) { // exceeds the max the maximum dates
+            day = 1;
+            month++;
+        }
+    }
+
+    if (month > 12) {
+        month = 1;
+        year++;
+    }
+    return {
+        day: day,
+        month: month,
+        year: year
+    };
+}
+
+
+function getNextPalindromeDate(date) {
+    var ctr = 0;
+    var nextDate = getNextDate(date);
+
+    while (1) {
+        ctr++;
+        var isPalindrome = checkPalindromeForAllDateFormats(nextDate);
+        if (isPalindrome) {
+            break;
+        }
+        nextDate = getNextDate(nextDate);
+    }
+    return [ctr, nextDate];
+}
+
+
+var date = {
+        day: 31,
+        month: 12,
+        year: 2020
+    }
+    //console.log(getNextPalindromeDate(date));
