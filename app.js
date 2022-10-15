@@ -19,10 +19,10 @@ function clickHandler() {
         var isPalindrome = checkPalindromeForAllDateFormats(date)
 
         if (isPalindrome) {
-            outputBox.innerText = "Your Birthday is Palindrome 👼"
+            outputBox.innerText = "Your Palindrome Birthday is  👼"
         } else {
             var [ctr, nextDate] = getNextPalindromeDate(date)
-            outputBox.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${ctr} days.`;
+            outputBox.innerText = `The nearest palindrome date is 😎 ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${ctr} days.`;
         }
     }
 }
