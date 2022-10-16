@@ -37,13 +37,10 @@ function reverseStr(str) {
     //return str.split('').reverse('').join(''); //This is th shorthand proprty which we above used function.  //
 }
 
-//console.log(reverseStr("hello"))
-
 function isPalindrome(str) {
     var reverse = reverseStr(str)
     return str === reverse;
 }
-//console.log(isPalindrome('mom'))
 
 function convertDateToStr(date) {
 
@@ -68,13 +65,6 @@ function convertDateToStr(date) {
     return dateStr;
 
 }
-
-//var date = {
-//    day: 5,
-//    month: 9,
-//    year: 2020
-//}
-//console.log(convertDateToStr(date));
 
 function getAllDateFormats(date) {
     var dateStr = convertDateToStr(date)
@@ -117,33 +107,29 @@ function isLeapYear(year) {
 }
 
 function getNextDate(date) {
-    var day = date.day + 1; // increase the days
+    var day = date.day + 1;
     var month = date.month;
     var year = date.year;
 
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        //0-11
 
-    //check for february
     if (month === 2) {
         if (isLeapYear(year)) {
             if (day > 29) {
                 day = 1;
-                month++; //increment the month
+                month++;
             }
         } else {
             if (day > 28) {
                 day = 1;
-                month++ //increment the month 
+                month++
             }
         }
     } else {
-        //check if the day exeeds the max days in month
         if (day > daysInMonth[month - 1]) {
             day = 1;
-            month++; //increment the month
+            month++;
         }
-        //increment the year if month is greater than 12
         if (month > 12) {
             month = 1;
             year++;
@@ -155,7 +141,6 @@ function getNextDate(date) {
         year: year
     };
 }
-
 
 function getNextPalindromeDate(date) {
     var ctr = 0;
@@ -174,19 +159,3 @@ function getNextPalindromeDate(date) {
 }
 
 showBtn.addEventListener('click', clickHandler)
-
-
-//var date = {
-//    day: 8,
-//    month: 8,
-//    year: 2021
-//}
-
-//checkPalindromeForAllDateFormats(date);
-//getNextPalindromeDate(date);
-
-
-//console.log(getNextDate(date)) // for this 
-//15 aug 2021 , 20 feb 2020 ,31 dec 2020 - check for these dates
-
-//console.log(getNextPalindromeDate(date));
