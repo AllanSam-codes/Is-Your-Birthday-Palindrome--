@@ -34,6 +34,7 @@ label {
     margin-bottom: 0.5rem;
     width: 55%;
     height: 5vh;
+    padding: 0.5rem;
 }
 
 #show-btn {
@@ -43,8 +44,9 @@ label {
     margin: auto;
     border-radius: 0.5rem;
     border: 1px solid whitesmoke;
-    background-color: var(--primary-color);
-    color: #f8f8ff;
+    color: var(--primary-color);
+    background-color: #fff;
+    cursor: pointer;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
